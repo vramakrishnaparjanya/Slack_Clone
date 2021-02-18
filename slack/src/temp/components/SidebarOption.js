@@ -12,7 +12,7 @@ function SidebarOption({Icon, title, id, addChannelOption}) {
             history.push(`/room/${id}`);
         }
         else{
-            history.push(title);
+            history.push(`${title}`);
         }
     };
     const addChannel=() =>{
@@ -21,7 +21,7 @@ function SidebarOption({Icon, title, id, addChannelOption}) {
         {
             db.collection('rooms').add({
                 name:channelName,
-            })
+            });
         }
 
 
@@ -34,8 +34,8 @@ function SidebarOption({Icon, title, id, addChannelOption}) {
             {Icon ?  (
                 <h3>{title}</h3>
             ) : (
-                <h3 className='sidebarOption__channel'>#
-                    <span className='sidebarOption__hash'>{title}</span>
+                <h3 className='sidebarOption__channel'>
+                    <span className='sidebarOption__hash'>#</span>{title}
 
                 </h3>
             )
